@@ -7,7 +7,7 @@ import userRoutes from "./user.routes";
 
 const appRoutes = (app: Express) => {
   app.use("/users", userRoutes());
-  app.use("login", sessionRoutes());
+  app.use("/login", sessionRoutes());
   app.use("/categories", categoryRoutes());
   app.use("/properties", propertyRoutes());
   app.use("/schedule", scheduleRoutes());
