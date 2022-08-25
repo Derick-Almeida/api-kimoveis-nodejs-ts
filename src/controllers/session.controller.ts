@@ -1,5 +1,11 @@
 import { Request, Response } from "express";
+import createSessionService from "../services/sessions/createSession.service";
 
-const sessionUserController = async (req: Request, res: Response) => {};
+const createSessionController = async (req: Request, res: Response) => {
+  const userData = req.body;
+  const token = await createSessionService(userData);
 
-export { sessionUserController };
+  return res.json({ token });
+};
+
+export { createSessionController };
