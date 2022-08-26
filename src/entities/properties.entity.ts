@@ -13,7 +13,7 @@ import { Category } from "./categories.entity";
 import { ScheluderUserPropertie } from "./schedulesUsersProperties.entity";
 
 @Entity("properties")
-class Propertie {
+class Property {
   @PrimaryGeneratedColumn("uuid")
   readonly id: string;
 
@@ -46,4 +46,4 @@ class Propertie {
   address: Address;
 }
 
-export { Propertie };
+export { Property };

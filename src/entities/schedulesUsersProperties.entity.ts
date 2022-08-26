@@ -1,5 +1,5 @@
 import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Propertie } from "./properties.entity";
+import { Property } from "./properties.entity";
 import { User } from "./users.entity";
 
 @Entity("scheluders_users_properties")
@@ -13,8 +13,8 @@ class ScheluderUserPropertie {
   @Column({ type: "time" })
   hour: Date;
 
-  @ManyToOne(() => Propertie)
-  property: Propertie;
+  @ManyToOne(() => Property)
+  property: Property;
 
   @ManyToOne(() => User)
   user: User;
