@@ -3,9 +3,7 @@ import { Category } from "../../entities/categories.entity";
 import AppError from "../../errors/AppErros";
 import { ICategoryRequest } from "../../interfaces/categories";
 
-const createCategoryService = async ({
-  name,
-}: ICategoryRequest): Promise<ICategoryRequest> => {
+const createCategoryService = async ({ name }: ICategoryRequest): Promise<ICategoryRequest> => {
   const categoryRepository = AppDataSource.getRepository(Category);
   const categoryAlreadyExists = await categoryRepository.findOneBy({
     name: name,

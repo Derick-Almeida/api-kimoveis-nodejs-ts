@@ -7,17 +7,13 @@ import {
   createScheduleControler,
   listSchedulesForAPropertyController,
 } from "../controllers/schedules.controller";
+import isAdm from "../middlewares/verifyUserIsAdm.middleware";
 
 const router = Router();
 
 const scheduleRoutes = () => {
-  router.post(
-    "",
-    validatedSchema(createScheduleSchema),
-    authUser,
-    createScheduleControler
-  );
-  router.get("/properties/:id", authUser, listSchedulesForAPropertyController);
+  router.post("", validatedSchema(createScheduleSchema), authUser, createScheduleControler);
+  router.get("/properties/:id", authUser, isAdm, listSchedulesForAPropertyController);
 
   return router;
 };

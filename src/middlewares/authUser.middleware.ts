@@ -14,24 +14,20 @@ const authUser = async (req: Request, res: Response, next: NextFunction) => {
     token = token.split(" ")[1];
   }
 
-  jwt.verify(
-    token,
-    process.env.SECRET_KEY as string,
-    (err: any, decoded: any) => {
-      if (err) {
-        res.status(401).json({
-          message: "Invalid token",
-        });
-      }
-
-      req.user = {
-        isAdm: decoded.isAdm,
-        id: decoded.sub,
-      };
-
-      next();
+  jwt.verify(token, process.env.SECRET_KEY as string, (err: any, decoded: any) => {
+    if (err) {
+      res.status(401).json({
+        message: "Invalid token",
+      });
     }
-  );
+
+    req.user = {
+      isAdm: decoded.isAdm,
+      id: decoded.sub,
+    };
+
+    next();
+  });
 };
 
 export default authUser;

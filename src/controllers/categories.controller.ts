@@ -16,10 +16,7 @@ const listCategoriesController = async (req: Request, res: Response) => {
   return res.json(categoryList);
 };
 
-const listPropertiesFromCategoriesController = async (
-  req: Request,
-  res: Response
-) => {
+const listPropertiesFromCategoriesController = async (req: Request, res: Response) => {
   const { id } = req.params;
   const response = await listPropertiesFromCategoriesService(id);
 

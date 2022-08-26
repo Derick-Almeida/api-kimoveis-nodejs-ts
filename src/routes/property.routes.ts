@@ -12,13 +12,7 @@ import { createPropertySchema } from "../schemas/property.schema";
 const router = Router();
 
 const propertyRoutes = () => {
-  router.post(
-    "",
-    validatedSchema(createPropertySchema),
-    authUser,
-    isAdm,
-    createPropertyControler
-  );
+  router.post("", validatedSchema(createPropertySchema), authUser, isAdm, createPropertyControler);
   router.get("", listPropertiesController);
 
   return router;

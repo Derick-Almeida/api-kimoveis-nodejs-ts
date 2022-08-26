@@ -13,13 +13,7 @@ import isAdm from "../middlewares/verifyUserIsAdm.middleware";
 const router = Router();
 
 const categoryRoutes = () => {
-  router.post(
-    "",
-    validatedSchema(createCategorySchema),
-    authUser,
-    isAdm,
-    createCategoryController
-  );
+  router.post("", validatedSchema(createCategorySchema), authUser, isAdm, createCategoryController);
 
   router.get("", listCategoriesController);
   router.get("/:id/properties", listPropertiesFromCategoriesController);

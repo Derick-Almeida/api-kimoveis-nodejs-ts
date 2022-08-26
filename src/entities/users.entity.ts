@@ -1,10 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Exclude } from "class-transformer";
 import { ScheluderUserPropertie } from "./schedulesUsersProperties.entity";
 
@@ -35,10 +29,7 @@ class User {
   @CreateDateColumn({ type: "date" })
   updatedAt: Date;
 
-  @OneToMany(
-    () => ScheluderUserPropertie,
-    (scheluderUserPropertie) => scheluderUserPropertie.user
-  )
+  @OneToMany(() => ScheluderUserPropertie, (scheluderUserPropertie) => scheluderUserPropertie.user)
   scheludes_users_properties: ScheluderUserPropertie[];
 }
 

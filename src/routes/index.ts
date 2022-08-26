@@ -10,7 +10,7 @@ const appRoutes = (app: Express) => {
   app.use("/login", sessionRoutes());
   app.use("/categories", categoryRoutes());
   app.use("/properties", propertyRoutes());
-  app.use("/schedule", scheduleRoutes());
+  app.use("/schedules", scheduleRoutes());
 };
 
 export default appRoutes;

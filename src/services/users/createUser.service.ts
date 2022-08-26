@@ -4,12 +4,7 @@ import { IUserRequest } from "../../interfaces/users";
 import AppDataSource from "../../data-source";
 import AppError from "../../errors/AppErros";
 
-const createUserService = async ({
-  email,
-  isAdm,
-  name,
-  password,
-}: IUserRequest): Promise<User> => {
+const createUserService = async ({ email, isAdm, name, password }: IUserRequest): Promise<User> => {
   const userRepository = AppDataSource.getRepository(User);
   const emailAlreadyExists = await userRepository.findOneBy({ email: email });
 

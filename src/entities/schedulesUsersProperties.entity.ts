@@ -16,7 +16,7 @@ class ScheluderUserPropertie {
   @ManyToOne(() => Property)
   property: Property;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { eager: true })
   user: User;
 }
 
