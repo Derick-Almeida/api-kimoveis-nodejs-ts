@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { Propertie } from "./properties.entity";
+import { Property } from "./properties.entity";
 
 @Entity("categories")
 class Category {
@@ -9,8 +9,8 @@ class Category {
   @Column({ unique: true })
   name: string;
 
-  @OneToMany(() => Propertie, (propertie) => propertie.category)
-  properties: Propertie[];
+  @OneToMany(() => Property, (property) => property.category)
+  properties: Property[];
 }
 
 export { Category };

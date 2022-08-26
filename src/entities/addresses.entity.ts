@@ -11,7 +11,7 @@ class Address {
   @Column()
   zipCode: string;
 
-  @Column()
+  @Column({ nullable: true })
   number?: string;
 
   @Column()

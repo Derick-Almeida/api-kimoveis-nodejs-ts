@@ -5,19 +5,24 @@ import authUser from "../middlewares/authUser.middleware";
 
 import {
   createCategoryController,
+  listCategoriesController,
   listPropertiesFromCategoriesController,
 } from "../controllers/categories.controller";
+import isAdm from "../middlewares/verifyUserIsAdm.middleware";
 
 const router = Router();
 
 const categoryRoutes = () => {
-  router.post("", authUser, createCategoryController);
-  router.get(
-    "/:id/properties",
+  router.post(
+    "",
     validatedSchema(createCategorySchema),
     authUser,
-    listPropertiesFromCategoriesController
+    isAdm,
+    createCategoryController
   );
+
+  router.get("", listCategoriesController);
+  router.get("/:id/properties", listPropertiesFromCategoriesController);
 
   return router;
 };
