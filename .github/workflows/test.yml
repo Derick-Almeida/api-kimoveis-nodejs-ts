@@ -2,9 +2,9 @@ name: Execução dos testes de integração
 
 on:
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
 
 jobs:
   integration_tests:
@@ -13,16 +13,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v2.2.0
         with:
           node-version: ${{ matrix.node-version }}
-      
+
       - name: Install dependences
         run: yarn
-      
+
       - name: Run tests
         run: yarn test
-      
-      
